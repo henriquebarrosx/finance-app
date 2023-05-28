@@ -1,7 +1,7 @@
-export default function HomePage() {
+export default function SignInPage() {
     return (
         <div className="flex justify-center items-center h-screen w-screen">
-            <span>Root page</span>
+            <span>Sign in page</span>
         </div>
     )
 }
