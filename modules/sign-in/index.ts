@@ -12,11 +12,27 @@ export function useAuthViewModel(sessionRepository: ISessionRepository): IAuthVi
         }
     }
 
+    async function signOut(): Promise<void> {
+        sessionRepository
+            .destroy()
+            .catch(
+                (error) => {
+                    console.error(
+                        '[auth] houve um problema ao autenticar',
+                        { error }
+                    )
+                }
+            )
+
+    }
+
     return {
         signIn,
+        signOut,
     }
 }
 
 interface IAuthViewModel {
     signIn(): Promise<void>
+    signOut(): Promise<void>
 }

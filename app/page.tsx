@@ -1,12 +1,13 @@
 'use client'
 
-import { withAuth } from "#/modules/auth"
+import { withAuth } from '#/modules/auth/private'
+import { PageView } from '#/app/components/PageView'
 
 function HomePage() {
     return (
-        <div className='flex justify-center items-center h-screen w-screen'>
-            <span>Root page</span>
-        </div>
+        <PageView>
+
+        </PageView>
     )
 }
 

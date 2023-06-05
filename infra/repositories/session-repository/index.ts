@@ -1,6 +1,6 @@
 import { Session } from "#/domain/Session"
-import { signInWithPopup } from "firebase/auth"
 import { ISessionRepository } from "./index.gateways"
+import { signInWithPopup, signOut } from "firebase/auth"
 import { firebaseApp } from "#/infra/adapters/FirebaseAdapter"
 import { ICryptorAdapter } from "#/infra/adapters/CryptorAdapter/index.gateway"
 import { SessionModel } from "#/infra/repositories/session-repository/index.models"
@@ -22,6 +22,14 @@ export class SessionRepository implements ISessionRepository {
 
         const result = await signInWithPopup(auth, provider)
         return SessionMapper.map({ ...result.user as SessionModel })
+    }
+
+    async destroy(): Promise<void> {
+        console.info('[sessão] encerrando sessão...')
+
+        const auth = firebaseApp.getAuthInstance()
+        await signOut(auth)
+        this.storage.removeItem(LOCAL_STORAGE_SESSION_KEY)
     }
 
     find(): Session | undefined {

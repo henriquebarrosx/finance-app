@@ -1,6 +1,6 @@
 'use client'
 
-import { withNoAuth } from '#/modules/auth'
+import { withNoAuth } from '#/modules/auth/public'
 import GoogleButton from '#/app/components/GoogleButton'
 
 function SignInPage() {
