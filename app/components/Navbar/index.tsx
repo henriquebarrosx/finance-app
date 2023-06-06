@@ -11,10 +11,10 @@ export function Navbar() {
     const session = sessionRepository.find()
 
     return (
-        <div className='fixed w-screen h-16 p-8 bg-white'>
+        <div className='fixed top-0 w-screen h-16 p-8 bg-teal-500'>
             <div className='relative max-w-[1440px] w-full h-full flex justify-between items-center mx-auto'>
                 <div className='flex gap-1'>
-                    <FaCoins color='rgb(251 191 36)' size={32} />
+                    <FaCoins color='#FFFFFF' size={32} />
                 </div>
 
                 <AvatarSide
