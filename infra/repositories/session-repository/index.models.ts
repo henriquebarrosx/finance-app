@@ -3,4 +3,5 @@ export type SessionModel = {
     displayName: string
     email: string
     photoURL: string
+    expireIn: string
 }

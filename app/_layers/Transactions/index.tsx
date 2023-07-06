@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import { Transaction } from '#/domain/Transaction'
 import { TransactionItem } from '#/app/_layers/Transaction'

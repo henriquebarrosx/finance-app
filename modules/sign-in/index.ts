@@ -3,27 +3,20 @@ import { ISessionRepository } from '#/infra/repositories/session-repository/inde
 export function useAuthViewModel(sessionRepository: ISessionRepository): IAuthViewModel {
     async function signIn(): Promise<void> {
         try {
-            const user = await sessionRepository.create()
-            sessionRepository.save(user)
+            const userCredentials = await sessionRepository.create()
+            sessionRepository.save(userCredentials)
         }
 
         catch (error) {
-            console.error("[auth] houve um problema ao autenticar", { error })
+            console.error('[auth] houve um problema ao autenticar', { error })
         }
     }
 
     async function signOut(): Promise<void> {
-        sessionRepository
-            .destroy()
-            .catch(
-                (error) => {
-                    console.error(
-                        '[auth] houve um problema ao autenticar',
-                        { error }
-                    )
-                }
-            )
-
+        sessionRepository.destroy()
+            .catch((error) => {
+                console.error('[auth] houve um problema ao autenticar', { error })
+            })
     }
 
     return {

@@ -1,5 +1,6 @@
 import { createElement } from 'react'
-import { firebaseApp } from '#/infra/adapters/FirebaseAdapter'
+import { firebaseApp } from '#/domain/Firebase'
+import { sessionRepository } from '#/infra/repositories'
 
 export function withAuth(Component: () => JSX.Element) {
     firebaseApp
@@ -9,6 +10,7 @@ export function withAuth(Component: () => JSX.Element) {
                 console.info('[sessão] validando sessão...')
 
                 if (!session) {
+                    sessionRepository.destroy()
                     window.location.replace('/auth/sign-in')
                 }
             }

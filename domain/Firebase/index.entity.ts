@@ -1,7 +1,8 @@
 import { FirebaseApp, initializeApp } from 'firebase/app'
 import { Auth, getAuth, GoogleAuthProvider } from 'firebase/auth'
+import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
-export class FirebaseAdapter {
+export class Firebase {
     private app: FirebaseApp
 
     constructor() {
@@ -28,5 +29,13 @@ export class FirebaseAdapter {
         const provider = new GoogleAuthProvider()
         provider.addScope('https://www.googleapis.com/auth/contacts.readonly')
         return provider
+    }
+
+    async get(route: string) {
+        const database = getFirestore(this.app)
+        const dbCollection = collection(database!, route)
+        const snapshot = await getDocs(dbCollection)
+        const data = snapshot.docs.map((doc) => doc.data())
+        return data
     }
 }

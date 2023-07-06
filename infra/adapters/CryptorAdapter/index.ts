@@ -1,3 +1,3 @@
-import { CryptorAdapterSingleton } from "./index.singleton"
+import { CryptorAdapterSingleton } from './index.singleton'
 
-export const cryptor = CryptorAdapterSingleton.getInstance()
+export const cryptorAdapter = CryptorAdapterSingleton.getInstance()

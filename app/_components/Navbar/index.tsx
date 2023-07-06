@@ -1,10 +1,10 @@
-'use client'
+// 'use client'
 
 import { FaCoins } from 'react-icons/fa'
-import { AvatarSide } from '#/app/components/AvatarSide'
+import { AvatarSide } from '#/app/_components/AvatarSide'
 import { sessionRepository } from '#/infra/repositories'
-import { ProfileCard } from '#/app/components/ProfileCard'
-import { useProfileCardViewModel } from '#/app/components/ProfileCard/index.vm'
+import { ProfileCard } from '#/app/_components/ProfileCard'
+import { useProfileCardViewModel } from '#/app/_components/ProfileCard/index.vm'
 
 export function Navbar() {
     const profileCardViewModel = useProfileCardViewModel()

@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import { Transaction } from '#/domain/Transaction'
 import { useTransactionViewModel } from '#/modules/transactions'

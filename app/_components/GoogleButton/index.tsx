@@ -1,7 +1,5 @@
 'use client'
 
-import { memo } from 'react'
-
 import { useAuthViewModel } from '#/modules/sign-in'
 import { sessionRepository } from '#/infra/repositories'
 
@@ -15,4 +13,4 @@ function GoogleButton() {
     )
 }
 
-export default memo(GoogleButton)
+export default GoogleButton

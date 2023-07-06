@@ -1,4 +1,4 @@
-import { CryptorAdapter } from "./index.adapter"
+import { CryptorAdapter } from './index.adapter'
 
 export class CryptorAdapterSingleton {
     private static instance: CryptorAdapter
